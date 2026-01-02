@@ -1,0 +1,278 @@
+/* =========================================
+   INF1001 - Travail 3
+   ========================================= */
+
+/* -------- Base -------- */
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    font-family: serif;
+    line-height: 1.5;
+    background-color: #f5f5f5;
+}
+
+/* -------- Header -------- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 10px 16px;
+    background-color: #fff;
+    margin: 10px;
+}
+
+h1 {
+    font-family: "Yatra One", system-ui, serif;
+    margin: 0;
+}
+h1 span { display: block; }
+
+.logo {
+    width: 260px;
+    max-width: 100%;
+}
+
+/* -------- Layout -------- */
+.layout {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+}
+
+main { flex: 1; }
+
+/* -------- Menu -------- */
+.main-nav { min-width: 200px; }
+
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #000;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.menu-item {
+    position: relative;
+    border-bottom: 1px solid #e0e0e0;
+}
+.menu-item:last-child { border-bottom: none; }
+
+.menu-item > a {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #000;
+    background-color: #fff;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.menu-item:hover > a {
+    background-color: #000;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submenu {
+    list-style: none;
+    padding: 5px;
+    background-color: #000;
+    color: #fff;
+    font-size: 0.9em;
+    display: none;
+}
+.menu-item:hover .submenu { display: block; }
+
+.submenu li {
+    margin: 15px 10px;
+    font-weight: bold;
+}
+
+.menu-item > a.active-link {
+    background-color: lightgrey;
+    color: #fff;
+    font-weight: bold;
+}
+.menu-item > a.active-link:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+/* -------- Section -------- */
+.section {
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 10px 12px;
+    margin: 0;
+    background-color: #fff;
+    display: none;
+}
+.section.active { display: block; }
+
+/* -------- Table activités (index.php) -------- */
+.table-activite {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+}
+
+.table-activite th,
+.table-activite td {
+    border: 1px solid #000;
+    padding: 2px 8px;
+}
+
+.table-activite thead th {
+    background-color: lightgrey;
+    text-align: center;
+    color: #fff;
+}
+
+/* -------- Form inscription (inscription.php) -------- */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 10px;
+    row-gap: 6px;
+    max-width: 500px;
+}
+
+.form-grid input[type="text"],
+.form-grid input[type="date"],
+.form-grid select,
+.form-grid textarea {
+    width: 100%;
+    padding: 4px 6px;
+    border-radius: 3px;
+    border: 1px solid #aaa;
+    font: inherit;
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.error-msg {
+    display: block;
+    font-size: 0.8em;
+    color: #c62828;
+    margin-top: 2px;
+}
+
+/* -------- Form login (login.php) -------- */
+.form-group {
+    max-width: 400px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 6px 8px;
+    border-radius: 3px;
+    border: 1px solid #aaa;
+    font: inherit;
+}
+
+/* -------- Admin (admin.php) -------- */
+.table-admin {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.table-admin th,
+.table-admin td {
+    border: 1px solid #000;
+    padding: 6px 8px;
+}
+
+.table-admin thead th {
+    background-color: lightgrey;
+    color: #fff;
+    text-align: left;
+}
+
+.add-activity-btn,
+.supprimer-btn {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 1px solid #000;
+    text-decoration: none;
+    color: #000;
+    background: #fff;
+    cursor: pointer;
+    font: inherit;
+}
+
+.add-activity-btn:hover,
+.supprimer-btn:hover {
+    background: #000;
+    color: #fff;
+}
+
+/* Dashboard stats (admin.php) */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.dashboard-item {
+    border: 1px solid #000;
+    border-radius: 6px;
+    padding: 10px;
+    background: #fff;
+}
+
+.progress-circle {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin-top: 10px;
+    border-radius: 50%;
+}
+
+/* -------- Carte (carte.php) -------- */
+.map-container { margin-top: 10px; }
+
+.map-container iframe {
+    width: 100%;
+    max-width: 100%;
+    border: 0;
+    border-radius: 5px;
+}
+
+/* -------- Responsive -------- */
+@media (max-width: 768px) {
+    header {
+        flex-wrap: wrap;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .layout { flex-direction: column; }
+
+    .main-nav { width: 100%; }
+
+    .form-grid { grid-template-columns: 1fr; }
+}
