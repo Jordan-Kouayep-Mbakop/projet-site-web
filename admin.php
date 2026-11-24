@@ -14,13 +14,13 @@ if (isset($_GET['action']) && $_GET['action'] === 'delete' && isset($_GET['id'])
     $id_activite = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
     if ($id_activite) {
         try {
-            // Suppression de l'activité
+            // Supprimer d'abord les inscriptions liées, tant que l'activité existe encore
+            $stmt = $pdo->prepare("DELETE FROM inscription WHERE activity = (SELECT name FROM activity WHERE id = ?)");
+            $stmt->execute([$id_activite]);
+
+            // Puis l'activité elle-même
             $stmt = $pdo->prepare("DELETE FROM activity WHERE id = ?");
             $stmt->execute([$id_activite]);
-            
-            // OPTIONNEL: Supprimer aussi les inscriptions liées si nécessaire
-             $stmt = $pdo->prepare("DELETE FROM inscription WHERE activity = (SELECT name FROM activity WHERE id = ?)");
-             $stmt->execute([$id_activity]);
             
             header('Location: admin.php');
             exit;
@@ -247,4 +247,4 @@ $details_activites = $stmt->fetchAll();
     </main>
 </div>
 </body>
-</html>
+</html>

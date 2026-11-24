@@ -11,11 +11,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($identifiant && $mot_de_passe) {
         $stmt = $pdo->prepare("SELECT id, username, password FROM users WHERE username = :username");
-        $stmt->execute([$identifiant]);
+        $stmt->execute(['username' => $identifiant]);
         $user = $stmt->fetch();
 
-        // Note: Utiliser password_verify() pour vérifier le hachage en production
-        if ($user && $user['password'] === $mot_de_passe) { // Simplifié pour le moment, à remplacer par password_verify
+        // Le mot de passe est stocké haché (password_hash) dans la base
+        if ($user && password_verify($mot_de_passe, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
             header('Location: admin.php'); // Redirection vers la page d'administration
@@ -91,4 +91,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </main>
 </div>
 </body>
-</html>
+</html>

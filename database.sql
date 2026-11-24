@@ -44,10 +44,7 @@ INSERT INTO `activity` (`id`, `name`, `responsable`, `max_places`) VALUES
 (3, 'Echecs', 'boby', 60),
 (4, 'Velo', 'marie', 40),
 (5, 'Kayak', 'alex', 20),
-(6, 'Randonnée', 'david', 20),
-(9, 'Natation', 'tttt', 2),
-(10, 'Kayak', 'tttt', 4),
-(13, 'Natation', 'eee', 6);
+(6, 'Randonnée', 'david', 20);
 
 -- --------------------------------------------------------
 
@@ -70,10 +67,7 @@ CREATE TABLE `inscription` (
 --
 
 INSERT INTO `inscription` (`id`, `name`, `surname`, `date`, `sex`, `activity`, `motivation`) VALUES
-(1, 'ilo', 'ali', '0000-00-00', 'M', 'NATATION', 'j aime ca'),
-(2, 'd', 'd', '2025-12-02', 'Homme', 'Kayak', 'dccc'),
-(3, 'e', 'd', '2025-12-03', 'Homme', 'Natation', 'd'),
-(4, 'marc', 'allen', '1999-05-20', 'Homme', 'Natation', 'jaime bcp nager');
+(1, 'marc', 'allen', '1999-05-20', 'Homme', 'Natation', 'jaime bcp nager');
 
 -- --------------------------------------------------------
 
@@ -92,8 +86,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`) VALUES
-(1, 'admin', '$2y$10$...hash_de_votre_mot_de_passe_admin...'),
-(2, 'admin1', '03Jordan@');
+(1, 'admin', '$2y$10$S6i3mHfknsjPYd33B6WV6O4s7pM2xs1dHQEf42qVJv1kgEzF6mOlm');
 
 --
 -- Index pour les tables déchargées
@@ -126,19 +119,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `activity`
 --
 ALTER TABLE `activity`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT pour la table `inscription`
 --
 ALTER TABLE `inscription`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
