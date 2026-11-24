@@ -23,7 +23,7 @@ Une vidéo de démonstration se trouve dans `Vidéo Descriptive.zip`.
 - PHP 8 avec PDO et requêtes préparées
 - MySQL / MariaDB
 - HTML et CSS
-- Environnement local : WampServer (ou XAMPP)
+- Environnement local : WampServer
 
 ## Base de données
 
@@ -39,8 +39,8 @@ Le tableau de bord repose sur une seule requête : une jointure externe entre `a
 
 ## Lancer le projet en local
 
-1. Installer WampServer ou XAMPP et démarrer Apache et MySQL.
-2. Copier le dossier du projet dans `www` (WampServer) ou `htdocs` (XAMPP).
+1. Installer WampServer et démarrer Apache et MySQL.
+2. Copier le dossier du projet dans le dossier `www` de WampServer.
 3. Dans phpMyAdmin, créer une base nommée `database` et y importer `database.sql`.
 4. Adapter au besoin les paramètres de connexion dans `db_connect.php` (par défaut : utilisateur `root`, sans mot de passe).
 5. Ouvrir `http://localhost/projet-site-web/`.
